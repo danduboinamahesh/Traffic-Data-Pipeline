@@ -37,91 +37,14 @@ These datasets simulate a **real-world smart city traffic system**.
 
 ---
 
-##   Project Architecture
 
-The pipeline integrates **AWS streaming services, Databricks processing, and Delta Lake analytics modeling**.
 
-### End-to-End System Architecture
 
-Traffic Sensors / Dataset  
-│  
-▼  
-Amazon Kinesis Data Streams  
-│  
-▼  
-Databricks Structured Streaming  
-│  
-▼  
-Amazon S3 / Delta Lake  
-│  
-▼  
-Medallion Architecture (Bronze → Silver → Gold)  
-│  
-▼  
-Databricks SQL Warehouse  
-│  
-▼  
-Dashboards & Analytics  
 
----
+<img width="1536" height="1024" alt="ChatGPT Image Mar 18, 2026, 10_22_57 AM" src="https://github.com/user-attachments/assets/47e76199-3777-4436-af5b-8c70cdedb364" />
 
-##   Medallion Architecture Layers
 
-###   Bronze Layer (Raw Data)
 
-#### Purpose
-- Store raw streaming data exactly as received  
-- Preserve data lineage  
-- Enable traceability of raw ingestion  
-
-#### Tables
-- `traffic_catalog.raw.traffic_readings`  
-- `traffic_catalog.raw.traffic_vehicle_metrics`  
-- `traffic_catalog.raw.traffic_speed_monitoring`  
-- `traffic_catalog.raw.traffic_incident_events`  
-- `traffic_catalog.raw.traffic_signal_performance`  
-
-#### Operations
-- Streaming ingestion from Amazon Kinesis  
-- JSON parsing  
-- Schema validation  
-- Raw storage in Delta Lake  
-
----
-
-###   Silver Layer (Cleaned Data)
-
-#### Purpose
-- Clean and standardize datasets  
-- Apply data quality rules  
-- Integrate multiple datasets  
-
-#### Transformations
-- Remove duplicate records  
-- Handle missing values  
-- Filter invalid speed values  
-- Standardize timestamps  
-- Cast data types  
-- Trim and clean data  
-
-#### Derived Features
-- Speed variance  
-- Traffic flow rate  
-- Congestion flag  
-
-#### Output Tables
-- `traffic_catalog.processed.valid_readings`  
-- `traffic_catalog.processed.vehicle_metrics`  
-- `traffic_catalog.processed.speed_metrics`  
-- `traffic_catalog.processed.incident_metrics`  
-- `traffic_catalog.processed.signal_metrics`  
-
----
-
-###   Gold Layer (Analytics Data)
-
-#### Purpose
-Generate business-ready datasets for analytics and reporting.
 
 ---
 
