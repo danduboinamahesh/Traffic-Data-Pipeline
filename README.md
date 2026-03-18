@@ -237,9 +237,6 @@ real-time-traffic-pipeline
 ├── requirements.txt
 └── README.md
 
-
----
-
 ##   Pipeline Execution Flow
 
 
@@ -269,57 +266,3 @@ The `pipeline_runner.py` script orchestrates the entire ETL pipeline.
 
 ---
 
-##   Installation
-
-Clone the repository:
-
-```bash
-git clone <your-repo-link>
-cd real-time-traffic-pipeline
-
-Install dependencies:
-
-pip install -r requirements.txt
-  Running the Pipeline
-
-Run the ETL pipeline locally:
-
-python pipeline_runner.py
-Pipeline stages executed:
-
-Real-time data ingestion (Bronze Layer)
-
-Data cleaning and transformation (Silver Layer)
-
-Feature engineering and aggregation (Gold Layer)
-
-  Future Enhancements
-
-Integrate real-time alerting (Slack / Email)
-
-Build machine learning models for traffic prediction
-
-Create advanced BI dashboards
-
-Implement automated monitoring
-
-  License
-
-This project is developed for educational and research purposes.
-
-  Author
-Project Lead
-
-Venkata Mahesh Babu Danduboina
-
-Team Members
-
-Basireddy Sandeep Reddy
-
-Umesh Kumar
-
-Shanmukh Malle
-
-⭐ GitHub
-
-(Add your repository link here)
