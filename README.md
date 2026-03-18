@@ -1,176 +1,325 @@
- Real-Time Traffic Data Monitoring Pipeline (Databricks + PySpark)
- Project Overview
+#   Real-Time Traffic Data Monitoring Pipeline (Databricks + PySpark)
 
-This project implements an end-to-end real-time data pipeline for traffic monitoring using AWS, Databricks, PySpark, and Delta Lake.
+##   Project Overview
 
-The pipeline processes streaming traffic sensor data and transforms it into analytics-ready datasets using the Medallion Architecture (Bronze → Silver → Gold).
+This project implements an **end-to-end real-time data pipeline** for traffic monitoring using **AWS, Databricks, PySpark, and Delta Lake**.
 
-The final output enables real-time traffic monitoring and smart city analytics by generating key insights such as:
+The pipeline processes **streaming traffic sensor data** and transforms it into analytics-ready datasets using the **Medallion Architecture (Bronze → Silver → Gold)**.
 
-Traffic congestion patterns
+The final output enables **real-time traffic monitoring and smart city analytics** by generating key insights such as:
 
-Peak traffic hours
-
-Incident monitoring metrics
-
-Signal performance insights
-
-Traffic delay trends
+- Traffic congestion patterns  
+- Peak traffic hours  
+- Incident monitoring metrics  
+- Signal performance insights  
+- Traffic delay trends  
 
 ---
 
-## 🏗 Architecture
+##   Dataset
 
-Traffic Sensors / Dataset
+### Dataset Source  
+Simulated Traffic Sensor Data (Streaming via Amazon Kinesis)
+
+The dataset represents real-time traffic data collected from sensors across city roads.
+
+---
+
+### Datasets Used
+
+- Traffic Readings → Vehicle count, speed, congestion  
+- Vehicle Metrics → Flow rate, density, delay  
+- Speed Monitoring → Speed violations and variance  
+- Incident Events → Accidents and disruptions  
+- Signal Performance → Traffic signal efficiency  
+
+These datasets simulate a **real-world smart city traffic system**.
+
+---
+
+##   Project Architecture
+
+The pipeline integrates **AWS streaming services, Databricks processing, and Delta Lake analytics modeling**.
+
+### End-to-End System Architecture
+
+Traffic Sensors / Dataset  
+│  
+▼  
+Amazon Kinesis Data Streams  
+│  
+▼  
+Databricks Structured Streaming  
+│  
+▼  
+Amazon S3 / Delta Lake  
+│  
+▼  
+Medallion Architecture (Bronze → Silver → Gold)  
+│  
+▼  
+Databricks SQL Warehouse  
+│  
+▼  
+Dashboards & Analytics  
+
+---
+
+##   Medallion Architecture Layers
+
+###   Bronze Layer (Raw Data)
+
+#### Purpose
+- Store raw streaming data exactly as received  
+- Preserve data lineage  
+- Enable traceability of raw ingestion  
+
+#### Tables
+- `traffic_catalog.raw.traffic_readings`  
+- `traffic_catalog.raw.traffic_vehicle_metrics`  
+- `traffic_catalog.raw.traffic_speed_monitoring`  
+- `traffic_catalog.raw.traffic_incident_events`  
+- `traffic_catalog.raw.traffic_signal_performance`  
+
+#### Operations
+- Streaming ingestion from Amazon Kinesis  
+- JSON parsing  
+- Schema validation  
+- Raw storage in Delta Lake  
+
+---
+
+###   Silver Layer (Cleaned Data)
+
+#### Purpose
+- Clean and standardize datasets  
+- Apply data quality rules  
+- Integrate multiple datasets  
+
+#### Transformations
+- Remove duplicate records  
+- Handle missing values  
+- Filter invalid speed values  
+- Standardize timestamps  
+- Cast data types  
+- Trim and clean data  
+
+#### Derived Features
+- Speed variance  
+- Traffic flow rate  
+- Congestion flag  
+
+#### Output Tables
+- `traffic_catalog.processed.valid_readings`  
+- `traffic_catalog.processed.vehicle_metrics`  
+- `traffic_catalog.processed.speed_metrics`  
+- `traffic_catalog.processed.incident_metrics`  
+- `traffic_catalog.processed.signal_metrics`  
+
+---
+
+###   Gold Layer (Analytics Data)
+
+#### Purpose
+Generate business-ready datasets for analytics and reporting.
+
+---
+
+###   Star Schema
+
+#### Dimension Tables
+- `dim_sensor`  
+- `dim_location`  
+- `dim_time`  
+- `dim_lane`  
+- `dim_weather`  
+
+#### Fact Table
+- `fact_traffic_stats`  
+
+---
+
+### Features Generated
+
+- Traffic congestion metrics  
+- Average speed trends  
+- Vehicle density analysis  
+- Incident tracking metrics  
+- Signal wait time analysis  
+- Travel time index  
+
+---
+
+##   Analytics Dashboards & Artifacts
+
+*(Dashboard tool will be added here)*
+
+### Dashboards
+
+####   Congestion Hotspots Dashboard
+Analyzes high traffic congestion areas across different locations.
+
+####   Peak Traffic Hours Dashboard
+Shows traffic patterns across different hours of the day.
+
+####   Incident Monitoring Dashboard
+Tracks accidents and disruptions across roads.
+
+####   Traffic Signal Optimization Dashboard
+Analyzes signal wait time and efficiency.
+
+####   Traffic Delay Dashboard
+Analyzes travel time trends and delays.
+
+---
+
+##   Business Insights Generated
+
+The pipeline enables several **smart city traffic insights**:
+
+### Traffic Trends
+Identify peak hours and daily traffic patterns.
+
+### Congestion Analysis
+Detect high congestion zones and bottlenecks.
+
+### Incident Monitoring
+Identify accident-prone areas.
+
+### Signal Optimization
+Improve signal timings to reduce delays.
+
+### Traffic Delay Analysis
+Predict travel delays using historical patterns.
+
+---
+
+##   Data Quality Checks
+
+Implemented checks include:
+
+- Null value validation  
+- Duplicate detection  
+- Schema validation  
+- Invalid data filtering  
+- Streaming error handling  
+
+### Monitoring
+
+- Databricks logs  
+- Streaming checkpoints  
+- Error logging tables  
+
+---
+
+##   Project Folder Structure
+
+
+real-time-traffic-pipeline
 │
-▼
-Kinesis Data Streams
+├── ingestion
+│ └── bronze_ingestion.py
 │
-▼
-Kinesis Firehose
+├── transformations
+│ └── silver_transformation.py
 │
-▼
-Amazon S3
+├── analytics
+│ └── gold_layer.py
 │
-▼
-Databricks (Streaming + Batch Processing)
+├── utils
+│ └── data_quality.py
 │
-▼
-Medallion Architecture
-
-* **Bronze Layer** → Raw traffic data
-* **Silver Layer** → Cleaned & validated data
-* **Gold Layer** → Star schema for analytics
-
-  ```
-    │  
-    ▼  
-  ```
-
-Databricks SQL Warehouse
+├── workflows
+│ └── pipeline_runner.py
 │
-▼
-Dashboards & Alerts
+├── configs
+│
+├── requirements.txt
+└── README.md
+
 
 ---
 
-## ⚙️ Tech Stack
+##   Pipeline Execution Flow
 
-* AWS S3
-* AWS Kinesis Data Streams
-* AWS Kinesis Firehose
-* AWS Glue
-* Databricks
-* Apache Spark
-* Delta Lake
-* Apache Airflow
-* PyTest
-* GitHub
 
----
+bronze_ingestion.py
+↓
+silver_transformation.py
+↓
+gold_layer.py
+↓
+pipeline_runner.py
 
-## 📊 Data Layers
 
-### Bronze Layer
-
-Stores raw streaming data.
-
-Tables:
-
-* traffic_readings
-* vehicle_metrics
-* speed_monitoring
-* incident_events
-* signal_performance
-
-### Silver Layer
-
-Cleaned and validated data.
-
-Features:
-
-* Deduplication
-* Schema validation
-* Data quality checks
-* Derived metrics
-
-### Gold Layer
-
-Analytics-ready **Star Schema**.
-
-Dimension Tables:
-
-* dim_sensor
-* dim_location
-* dim_lane
-* dim_time
-* dim_weather
-
-Fact Table:
-
-* fact_traffic_stats
+The `pipeline_runner.py` script orchestrates the entire ETL pipeline.
 
 ---
 
-## 🔁 Pipelines
+##   Technologies Used
 
-### Batch Pipeline
-
-```
-S3 → Glue → S3 → Databricks
-```
-
-### Streaming Pipeline
-
-```
-S3 → Kinesis Streams → Firehose → S3 → Databricks
-```
+- Python  
+- PySpark  
+- Databricks  
+- Delta Lake  
+- AWS S3  
+- Amazon Kinesis  
+- Databricks SQL  
+- Git & GitHub  
 
 ---
 
-## 🚨 Data Quality
+##   Installation
 
-Rules applied in Silver & Gold layers:
+Clone the repository:
 
-* Remove duplicate events
-* Reject null sensor_id
-* Remove invalid speeds
-* Clean lane_id values
-* Standardize timestamps
+```bash
+git clone <your-repo-link>
+cd real-time-traffic-pipeline
 
-Errors are logged in **anomaly_log table**.
+Install dependencies:
 
----
+pip install -r requirements.txt
+  Running the Pipeline
 
-## ⏰ Orchestration
+Run the ETL pipeline locally:
 
-Pipelines are orchestrated using **Apache Airflow DAGs**.
+python pipeline_runner.py
+Pipeline stages executed:
 
-Features:
+Real-time data ingestion (Bronze Layer)
 
-* Scheduling
-* Monitoring
-* Retry handling
-* Failure alerts
+Data cleaning and transformation (Silver Layer)
 
----
+Feature engineering and aggregation (Gold Layer)
 
-## 📊 Dashboards
+  Future Enhancements
 
-Built using **Databricks SQL**:
+Integrate real-time alerting (Slack / Email)
 
-* Congestion Hotspots
-* Peak Traffic Hours
-* Incident Monitoring
-* Traffic Signal Optimization
-* Traffic Delay Trends
+Build machine learning models for traffic prediction
 
----
+Create advanced BI dashboards
 
-## 🧪 Testing
+Implement automated monitoring
 
-Testing implemented using **PyTest** for:
+  License
 
-* Data transformation validation
-* Schema checks
-* Data quality rules
+This project is developed for educational and research purposes.
+
+  Author
+Project Lead
+
+Venkata Mahesh Babu Danduboina
+
+Team Members
+
+Basireddy Sandeep Reddy
+
+Umesh Kumar
+
+Shanmukh Malle
+
+⭐ GitHub
+
+(Add your repository link here)
