@@ -22,7 +22,9 @@ The pipeline processes **streaming traffic sensor data** and transforms it into 
 Simulated Traffic Sensor Data (Streaming via Amazon Kinesis)
 
 The dataset represents real-time traffic data collected from sensors across city roads.
+
 https://www.kaggle.com/datasets/sonalsadia/traffic-detection-dataset
+
 ---
 
 ### Datasets Used
