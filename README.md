@@ -214,7 +214,7 @@ Implemented checks include:
 
 ##   Project Folder Structure
 
-
+```
 real-time-traffic-pipeline
 │
 ├── ingestion
@@ -236,10 +236,11 @@ real-time-traffic-pipeline
 │
 ├── requirements.txt
 └── README.md
+```
 
 ##   Pipeline Execution Flow
 
-
+```
 bronze_ingestion.py
 ↓
 silver_transformation.py
@@ -247,6 +248,7 @@ silver_transformation.py
 gold_layer.py
 ↓
 pipeline_runner.py
+```
 
 
 The `pipeline_runner.py` script orchestrates the entire ETL pipeline.
