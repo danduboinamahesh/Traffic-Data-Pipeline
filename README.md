@@ -1,6 +1,21 @@
-# 🚦 Real-Time Traffic Data Monitoring Pipeline
+ Real-Time Traffic Data Monitoring Pipeline (Databricks + PySpark)
+ Project Overview
 
-A scalable **real-time traffic analytics pipeline** built using **AWS, Databricks, and Apache Spark** to ingest, process, and analyze streaming traffic data using **Medallion Architecture (Bronze, Silver, Gold)**.
+This project implements an end-to-end real-time data pipeline for traffic monitoring using AWS, Databricks, PySpark, and Delta Lake.
+
+The pipeline processes streaming traffic sensor data and transforms it into analytics-ready datasets using the Medallion Architecture (Bronze → Silver → Gold).
+
+The final output enables real-time traffic monitoring and smart city analytics by generating key insights such as:
+
+Traffic congestion patterns
+
+Peak traffic hours
+
+Incident monitoring metrics
+
+Signal performance insights
+
+Traffic delay trends
 
 ---
 
