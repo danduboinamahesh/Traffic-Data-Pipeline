@@ -180,17 +180,27 @@ The `pipeline_runner.py` script orchestrates the entire ETL pipeline.
 
 ##   Technologies Used
 
-- Python  
-- PySpark  
-- Databricks   
-- AWS S3
-- AWS Lambda
-- Amazon Firehose
-- Amazon Kinesis
-- Amazon Glue 
-- Airflow
-- Slack  
-- Git & GitHub  
+Python – Used for building data processing logic, scripting, and integration tasks across the pipeline
+
+PySpark – Handles large-scale data transformations, cleaning, aggregations, and streaming processing in Databricks
+
+Databricks – Core platform for data engineering; used for implementing Medallion Architecture and managing Delta Lake
+
+AWS S3 – Serves as the data lake for storing raw (Bronze) and processed data in a scalable and cost-effective way
+
+AWS Lambda – Enables serverless event-driven data ingestion and triggers streaming workflows
+
+Amazon Kinesis – Handles real-time streaming ingestion of traffic data with high throughput and low latency
+
+Amazon Firehose – Delivers streaming data from Kinesis to S3 after converting it into optimized formats like Parquet
+
+AWS Glue – Used for metadata management, schema handling, and data cataloging
+
+Apache Airflow – Orchestrates and schedules the pipeline workflows using DAGs and manages dependencies
+
+Slack – Sends real-time alerts and notifications for pipeline failures and monitoring
+
+Git & GitHub – Used for version control, code management, and collaboration across the project
 
 ---
 
