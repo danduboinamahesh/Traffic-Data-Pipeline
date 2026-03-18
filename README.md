@@ -182,11 +182,14 @@ The `pipeline_runner.py` script orchestrates the entire ETL pipeline.
 
 - Python  
 - PySpark  
-- Databricks  
-- Delta Lake  
-- AWS S3  
-- Amazon Kinesis  
-- Databricks SQL  
+- Databricks   
+- AWS S3
+- AWS Lambda
+- Amazon Firehose
+- Amazon Kinesis
+- Amazon Glue 
+- Airflow
+- Slack  
 - Git & GitHub  
 
 ---
