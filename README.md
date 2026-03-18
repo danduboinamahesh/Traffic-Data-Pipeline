@@ -101,7 +101,7 @@ Slack – Sends real-time alerts and notifications for pipeline failures and mon
 
 ##   Analytics Dashboards & Artifacts
 
-*(Dashboard tool will be added here)*
+Refer Dashboards Folder
 
 ### Dashboards
 
