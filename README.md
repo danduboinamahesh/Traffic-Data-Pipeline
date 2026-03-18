@@ -41,10 +41,7 @@ These datasets simulate a **real-world smart city traffic system**.
 
 ## LakeHouse Architecture
 
-
-
-<img width="1536" height="1024" alt="ChatGPT Image Mar 18, 2026, 10_22_57 AM" src="https://github.com/user-attachments/assets/47e76199-3777-4436-af5b-8c70cdedb364" />
-
+<img width="1536" height="1024" alt="ChatGPT Image Mar 18, 2026, 10_22_57 AM" src="https://github.com/user-attachments/assets/43000c09-5f5e-4980-8735-49a6c69234e4" />
 
 
 
