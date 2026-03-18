@@ -27,7 +27,7 @@ TEST_DIR = "/tmp/traffic_pipeline_tests"
 os.makedirs(TEST_DIR, exist_ok=True)
 
 # ── If using Databricks Repos, point to your repo path ───
-# TEST_DIR = "/Workspace/Repos/<your-email>/traffic-pipeline/tests"
+TEST_DIR = "Workspace/Users/dvmb1412@gmail.com/Traffic-Data-Pipeline/tests"
 
 # Run pytest with verbose output
 result = subprocess.run(

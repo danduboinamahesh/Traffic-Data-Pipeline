@@ -6,11 +6,6 @@
 # Databricks cluster and pre-loads all tables as fixtures.
 # =========================================================
 
-import pytest
-from pyspark.sql import SparkSession
-
-
-@pytest.fixture(scope="session")
 def spark():
     """
     Returns the active Spark session on the Databricks cluster.
