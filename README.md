@@ -8,11 +8,11 @@ The pipeline processes **streaming traffic sensor data** and transforms it into 
 
 The final output enables **real-time traffic monitoring and smart city analytics** by generating key insights such as:
 
---Build a scalable real-time traffic monitoring pipeline to handle continuous data from sensors
---Process high-volume streaming data using AWS Kinesis for near real-time ingestion
---Store and transform data in Databricks Delta Lake using Medallion Architecture
---Generate analytics for congestion detection, traffic patterns, and anomaly identification
---Provide interactive dashboards to support real-time monitoring and decision-making
+-Build a scalable real-time traffic monitoring pipeline to handle continuous data from sensors
+-Process high-volume streaming data using AWS Kinesis for near real-time ingestion
+-Store and transform data in Databricks Delta Lake using Medallion Architecture
+-Generate analytics for congestion detection, traffic patterns, and anomaly identification
+-Provide interactive dashboards to support real-time monitoring and decision-making
 
 ---
 
