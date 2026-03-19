@@ -127,7 +127,7 @@ traffic_catalog.silver.vehicle_clean
 
 ### Star Schema
 
-<img width="1536" height="1024" alt="ChatGPT Image Mar 19, 2026, 01_05_05 PM" src="https://github.com/user-attachments/assets/7d0a348b-6e72-43e6-b5c5-77d5ed2f7e06" />
+<img width="1536" height="1024" alt="ChatGPT Image Mar 19, 2026, 02_20_56 PM" src="https://github.com/user-attachments/assets/3b89581c-9b04-4c4b-b783-0072e4892d08" />
 
 
 
@@ -177,79 +177,17 @@ Task 3: Gold Pipeline
 
 ### Scheduling
 
+
 Pipelines run on a **daily schedule** for automated data processing.
 
+---
 ### Alerts
+<img width="1417" height="621" alt="Screenshot 2026-03-19 at 2 30 30 PM" src="https://github.com/user-attachments/assets/29a37f23-577b-408b-9fdc-3d71770f0fd1" />
 
 * Integrated Slack alerts in **Apache Airflow DAG** to automatically notify on task failures with details like DAG ID, task ID, execution time, and log links.
 * Configured success notifications to send pipeline completion status and runtime metrics to Slack for real-time monitoring.
 ---
 
-
-
-
-
-
-
-
-
-
----
-
-### Features Generated
-
-- Traffic congestion metrics  
-- Average speed trends  
-- Vehicle density analysis  
-- Incident tracking metrics  
-- Signal wait time analysis  
-- Travel time index  
-
----
-
-##   Analytics Dashboards & Artifacts
-
-Refer Dashboards Folder
-
-### Dashboards
-
-####   Congestion Hotspots Dashboard
-Analyzes high traffic congestion areas across different locations.
-
-####   Peak Traffic Hours Dashboard
-Shows traffic patterns across different hours of the day.
-
-####   Incident Monitoring Dashboard
-Tracks accidents and disruptions across roads.
-
-####   Traffic Signal Optimization Dashboard
-Analyzes signal wait time and efficiency.
-
-####   Traffic Delay Dashboard
-Analyzes travel time trends and delays.
-
----
-
-##   Business Insights Generated
-
-The pipeline enables several **smart city traffic insights**:
-
-### Traffic Trends
-Identify peak hours and daily traffic patterns.
-
-### Congestion Analysis
-Detect high congestion zones and bottlenecks.
-
-### Incident Monitoring
-Identify accident-prone areas.
-
-### Signal Optimization
-Improve signal timings to reduce delays.
-
-### Traffic Delay Analysis
-Predict travel delays using historical patterns.
-
----
 
 ##   Data Quality Checks
 
@@ -265,30 +203,49 @@ Implemented checks include:
 
 - Databricks logs  
 - Streaming checkpoints  
-- Error logging tables  
+- Error logging tables
+
+
+---
+
+# Analytics Dashboards & Artifacts
+
+This section contains **dashboards generated from the analytics (Gold layer) dataset**.
+
+##Signal Performance 
+<img width="1171" height="845" alt="Screenshot 2026-03-19 at 2 32 34 PM" src="https://github.com/user-attachments/assets/53a190a1-ab13-4ce2-9088-afcfc613668d" />
+
+##Incident & Speed Analysis
+<img width="981" height="865" alt="Screenshot 2026-03-19 at 2 34 16 PM" src="https://github.com/user-attachments/assets/5c062d4b-89a1-4b7c-a3ee-5c3d65e80788" />
+
+##Traffic overview
+
+---<img width="1047" height="856" alt="Screenshot 2026-03-19 at 2 35 23 PM" src="https://github.com/user-attachments/assets/d7d4993c-4c14-4ec3-ac9e-afaca951022a" />
+
+---
+##   Business Insights Generated
+
+The pipeline enables several **smart city traffic insights**:
+
+
+
+
 
 ---
 
 
-##   Pipeline Execution Flow
+# Author
 
-```
-bronze_ingestion.py
-↓
-silver_transformation.py
-↓
-gold_layer.py
-↓
-pipeline_runner.py
-```
+### Project Lead
 
+**Venkata Mahesh Babu Danduboina**
 
-The `pipeline_runner.py` script orchestrates the entire ETL pipeline.
+### Team Members
 
----
+- Sandeep Reddy
+- shanmukh
+- Umesh yadav
 
+GitHub:
 
-Git & GitHub – Used for version control, code management, and collaboration across the project
-
----
-
+https://github.com/danduboinamahesh/Traffic-Data-Pipeline
