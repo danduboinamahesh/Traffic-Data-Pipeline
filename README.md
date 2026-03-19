@@ -226,34 +226,71 @@ This section contains **dashboards generated from the analytics (Gold layer) dat
 ##   Business Insights Generated
 
 The pipeline enables several **smart city traffic insights**:
-Stable Network Health: Traffic conditions remain consistent (~49–52 score) with minor fluctuations, indicating predictable but moderately congested roads
+- Network Health
 
-Peak Hour Congestion: Highest congestion observed during morning and evening peak hours, while mid-day and late-night show reduced traffic
+  - Traffic network remains stable with scores between 49–52
 
-Traffic Hotspots Identified: Certain sensors and locations consistently show high congestion, highlighting critical bottleneck areas
+  - Indicates consistent but moderately congested conditions
 
-Incident Impact: Accidents, breakdowns, and roadblocks significantly increase congestion and response time, affecting overall traffic flow
+- Peak Hour Trends
 
-Poor Signal Performance:
+  - Highest congestion during morning and evening peak hours
 
-Total Signals: 863
+  - Lower congestion during midday and late night
 
-Poor Signals: 742
+-Congestion Hotspots
 
-Avg Efficiency: ~49%
+  - Certain sensors/locations consistently show high congestion
 
-Avg Wait Time: ~90 seconds
-→ Indicates inefficient traffic signal management
+  - Identifies major traffic bottleneck areas
 
-High Intersection Delays: Some intersections experience extreme wait times (~180+ seconds) during peak hours
+-Incident Analysis
 
-Vehicle Impact on Traffic: Heavy vehicles (trucks/buses) contribute more to congestion compared to light vehicles
+  - Accidents, breakdowns, and roadblocks increase congestion
 
-Weekday vs Weekend Trends: Weekdays show slightly higher congestion, but traffic remains consistently high across all days
+  - Leads to higher response and clearance times
 
-Lane Blockage Effect: Lane closures significantly increase congestion levels, emphasizing the need for quick incident clearance
+- Signal Performance
 
-Balanced Vehicle Distribution: Traffic is evenly distributed across vehicle types, requiring holistic traffic management strategies
+  - Total Signals: 863
+
+  - Poor Signals: 742
+
+  - Average Efficiency: ~49%
+
+  - Average Wait Time: ~90 seconds
+
+  - Indicates inefficient signal management
+
+- Intersection Delays
+
+  - Some intersections experience wait times above 180 seconds
+
+  - Major contributor to peak-hour congestion
+
+- Vehicle Impact
+
+  - Heavy vehicles (trucks/buses) contribute more to congestion
+
+  - Especially during peak hours
+
+-Weekday vs Weekend
+
+  - Weekdays show slightly higher congestion than weekends
+
+  - Traffic remains consistently high overall
+
+-Lane Blockage Impact
+
+  - Lane closures significantly increase congestion levels
+
+  - Requires quick incident resolution
+
+-Vehicle Distribution
+
+  - Traffic is evenly distributed across vehicle types
+
+  - Requires balanced traffic management strategies
 
 
 
