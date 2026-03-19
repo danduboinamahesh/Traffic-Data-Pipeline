@@ -13,9 +13,14 @@ The pipeline ensures:
 ## Project Objective
 - Build a scalable real-time traffic monitoring pipeline to handle continuous data from sensors  
 - Process high-volume streaming data using AWS Kinesis for near real-time ingestion  
-- Store and transform data in Databricks Delta Lake using Medallion Architecture  
+- Store and transform data in Databricks Delta Lake using Medallion Architecture
+- Ensure high data quality by filtering invalid and corrupt records
 - Generate analytics for congestion detection, traffic patterns, and anomaly identification  
 - Provide interactive dashboards to support real-time monitoring and decision-making
+- Enable testing and validation using Pytest for data accuracy
+- Set up alerting mechanisms (e.g., Slack notifications) for abnormal traffic conditions
+
+
 
 ---
 
@@ -72,6 +77,20 @@ AWS Glue – Used for metadata management, schema handling, and data cataloging
 Apache Airflow – Orchestrates and schedules the pipeline workflows using DAGs and manages dependencies
 
 Slack – Sends real-time alerts and notifications for pipeline failures and monitoring
+
+
+| Technology      | Purpose                         |
+| --------------- | ------------------------------- |
+| Python          | Data processing & scripting     |
+| PySpark         | Distributed data processing     |
+| Databricks      | Data engineering platform       |
+| AWS S3          | Data lake storage               |
+| AWS Lambda      | Serverless data ingestion       |
+| Amazon Kinesis  | Real-time data streaming        |
+| Amazon Firehose | Stream delivery to S3 (Parquet) |
+| AWS Glue        | Metadata management             |
+| Apache Airflow  | Workflow orchestration          |
+| Slack           | Alerts & notifications          |
 
 ---
 
