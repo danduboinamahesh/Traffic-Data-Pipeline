@@ -212,13 +212,13 @@ Implemented checks include:
 
 This section contains **dashboards generated from the analytics (Gold layer) dataset**.
 
-##Signal Performance 
+## Signal Performance 
 <img width="1171" height="845" alt="Screenshot 2026-03-19 at 2 32 34 PM" src="https://github.com/user-attachments/assets/53a190a1-ab13-4ce2-9088-afcfc613668d" />
 
-##Incident & Speed Analysis
+## Incident & Speed Analysis
 <img width="981" height="865" alt="Screenshot 2026-03-19 at 2 34 16 PM" src="https://github.com/user-attachments/assets/5c062d4b-89a1-4b7c-a3ee-5c3d65e80788" />
 
-##Traffic overview
+## Traffic overview
 
 ---<img width="1047" height="856" alt="Screenshot 2026-03-19 at 2 35 23 PM" src="https://github.com/user-attachments/assets/d7d4993c-4c14-4ec3-ac9e-afaca951022a" />
 
@@ -226,7 +226,34 @@ This section contains **dashboards generated from the analytics (Gold layer) dat
 ##   Business Insights Generated
 
 The pipeline enables several **smart city traffic insights**:
+Stable Network Health: Traffic conditions remain consistent (~49–52 score) with minor fluctuations, indicating predictable but moderately congested roads
 
+Peak Hour Congestion: Highest congestion observed during morning and evening peak hours, while mid-day and late-night show reduced traffic
+
+Traffic Hotspots Identified: Certain sensors and locations consistently show high congestion, highlighting critical bottleneck areas
+
+Incident Impact: Accidents, breakdowns, and roadblocks significantly increase congestion and response time, affecting overall traffic flow
+
+Poor Signal Performance:
+
+Total Signals: 863
+
+Poor Signals: 742
+
+Avg Efficiency: ~49%
+
+Avg Wait Time: ~90 seconds
+→ Indicates inefficient traffic signal management
+
+High Intersection Delays: Some intersections experience extreme wait times (~180+ seconds) during peak hours
+
+Vehicle Impact on Traffic: Heavy vehicles (trucks/buses) contribute more to congestion compared to light vehicles
+
+Weekday vs Weekend Trends: Weekdays show slightly higher congestion, but traffic remains consistently high across all days
+
+Lane Blockage Effect: Lane closures significantly increase congestion levels, emphasizing the need for quick incident clearance
+
+Balanced Vehicle Distribution: Traffic is evenly distributed across vehicle types, requiring holistic traffic management strategies
 
 
 
