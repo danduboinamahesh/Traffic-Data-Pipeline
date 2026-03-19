@@ -1,4 +1,4 @@
-#   Real-Time Traffic Data Monitoring Pipeline (Databricks + PySpark)
+<img width="1470" height="956" alt="Screenshot 2026-03-19 at 12 36 42 PM" src="https://github.com/user-attachments/assets/21cace30-8d97-44c1-b75b-9c6eca098d78" /><img width="1470" height="956" alt="Screenshot 2026-03-19 at 12 36 42 PM" src="https://github.com/user-attachments/assets/3b3f1bac-53c6-474f-8ab4-d78409ea45e3" />#   Real-Time Traffic Data Monitoring Pipeline (Databricks + PySpark)
 
 ## Project Overview 
 
@@ -46,38 +46,7 @@ https://www.kaggle.com/datasets/sonalsadia/traffic-detection-dataset
 These datasets simulate a **real-world smart city traffic system**.
 
 ---
-
-## LakeHouse Architecture
-
-<img width="1536" height="1024" alt="ChatGPT Image Mar 18, 2026, 04_27_27 PM (1)" src="https://github.com/user-attachments/assets/ca3d00ce-1635-4521-821a-9efd6ab368aa" />
-
-
-
-
----
-
 ##   Technologies Used
-
-Python – Used for building data processing logic, scripting, and integration tasks across the pipeline
-
-PySpark – Handles large-scale data transformations, cleaning, aggregations, and streaming processing in Databricks
-
-Databricks – Core platform for data engineering; used for implementing Medallion Architecture and managing Delta Lake
-
-AWS S3 – Serves as the data lake for storing raw (Bronze) and processed data in a scalable and cost-effective way
-
-AWS Lambda – Enables serverless event-driven data ingestion and triggers streaming workflows
-
-Amazon Kinesis – Handles real-time streaming ingestion of traffic data with high throughput and low latency
-
-Amazon Firehose – Delivers streaming data from Kinesis to S3 after converting it into optimized formats like Parquet
-
-AWS Glue – Used for metadata management, schema handling, and data cataloging
-
-Apache Airflow – Orchestrates and schedules the pipeline workflows using DAGs and manages dependencies
-
-Slack – Sends real-time alerts and notifications for pipeline failures and monitoring
-
 
 | Technology      | Purpose                         |
 | --------------- | ------------------------------- |
@@ -93,18 +62,135 @@ Slack – Sends real-time alerts and notifications for pipeline failures and mon
 | Slack           | Alerts & notifications          |
 
 ---
+## LakeHouse Architecture
 
-###   Star Schema
+<img width="1536" height="1024" alt="ChatGPT Image Mar 18, 2026, 04_27_27 PM (1)" src="https://github.com/user-attachments/assets/ca3d00ce-1635-4521-821a-9efd6ab368aa" />
 
-#### Dimension Tables
-- `dim_sensor`  
-- `dim_location`  
-- `dim_time`  
-- `dim_lane`  
-- `dim_weather`  
+---
+# ETL Pipeline Design (Medallion Architecture Layers)
 
-#### Fact Table
-- `fact_traffic_stats`  
+## Bronze Layer (Raw Data)
+
+### Purpose
+
+- Store raw data exactly as received
+- Preserve data lineage
+- Enable traceability of raw ingestion
+
+### Tables
+
+```
+traffic_catalog.bronze.incident
+traffic_catalog.bronze.sensor
+traffic_catalog.bronze.signal
+traffic_catalog.bronze.speed
+traffic_catalog.bronze.vehicle
+```
+
+### Operations
+
+- Raw CSV ingestion from AWS S3
+- Schema validation
+- Metadata registration via AWS Glue
+
+---
+
+## Silver Layer (Cleaned Data)
+
+### Purpose
+
+- Clean and standardize datasets
+- Integrate multiple datasets
+
+### Transformations
+
+- Remove duplicate records
+- Convert data types
+- Handle missing values
+- Join sales data with store metadata
+- Join transaction data with sales records
+- Extract date features
+
+### Output Table
+
+```
+traffic_catalog.silver.incident_clean
+traffic_catalog.silver.sensor_clean
+traffic_catalog.silver.signal_clean
+traffic_catalog.silver.speed_clean
+traffic_catalog.silver.vehicle_clean
+```
+
+---
+
+## Gold Layer (Analytics Data)
+
+### Star Schema
+
+<img width="1470" height="956" alt="Screenshot 2026-03-19 at 12 36 42 PM" src="https://github.com/user-attachments/assets/3bbe690b-70b9-4d99-97cb-454b75a37d4e" />
+
+
+
+### Purpose
+
+Generate **business-ready datasets for analytics and forecasting**.
+
+### Features Generated
+
+- Average Speed (avg_speed): Calculates mean vehicle speed for each sensor and time window
+
+- Vehicle Count (vehicle_count): Total number of vehicles detected per event or interval
+
+- Congestion Flag (congestion_flag): Binary indicator (0/1) showing whether traffic is congested based on speed thresholds
+
+- Congestion Level (congestion_level): Categorizes traffic into Low / Medium / High based on speed and volume
+
+- Rolling Average Speed (10min_avg_speed): Computes moving average speed over a 10-minute window for trend analysis
+
+-Traffic Density: Derived from vehicle count and road capacity to measure load on roads
+
+- Signal Efficiency Metrics": Measures performance of traffic signals (e.g., wait time, flow efficiency)
+
+- Time-Based Aggregations: Metrics analyzed by hour, day, and date for trend analysis
+- Anomaly Detection Flags: Identifies unusual traffic patterns or sudden drops/spikes
+### Output Table
+
+```
+analytics.sales_forecast_features
+```
+
+---
+
+# **Air Flow** (Pipeline Orchestration)
+
+The pipeline is orchestrated using **Apache Airflow DAGs**.
+
+### Airflow DAG Tasks
+
+```
+Task 1: Bronze Pipeline
+Task 2: Silver Pipeline
+Task 3: Gold Pipeline
+```
+
+### Scheduling
+
+Pipelines run on a **daily schedule** for automated data processing.
+
+### Alerts
+
+* Integrated Slack alerts in **Apache Airflow DAG** to automatically notify on task failures with details like DAG ID, task ID, execution time, and log links.
+* Configured success notifications to send pipeline completion status and runtime metrics to Slack for real-time monitoring.
+---
+
+
+
+
+
+
+
+
+
 
 ---
 
@@ -181,31 +267,6 @@ Implemented checks include:
 
 ---
 
-##   Project Folder Structure
-
-```
-real-time-traffic-pipeline
-│
-├── ingestion
-│ └── bronze_ingestion.py
-│
-├── transformations
-│ └── silver_transformation.py
-│
-├── analytics
-│ └── gold_layer.py
-│
-├── utils
-│ └── data_quality.py
-│
-├── workflows
-│ └── pipeline_runner.py
-│
-├── configs
-│
-├── requirements.txt
-└── README.md
-```
 
 ##   Pipeline Execution Flow
 
