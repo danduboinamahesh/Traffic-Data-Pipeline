@@ -238,13 +238,13 @@ The pipeline enables several **smart city traffic insights**:
 
   - Lower congestion during midday and late night
 
--Congestion Hotspots
+- Congestion Hotspots
 
   - Certain sensors/locations consistently show high congestion
 
   - Identifies major traffic bottleneck areas
 
--Incident Analysis
+- Incident Analysis
 
   - Accidents, breakdowns, and roadblocks increase congestion
 
@@ -274,19 +274,19 @@ The pipeline enables several **smart city traffic insights**:
 
   - Especially during peak hours
 
--Weekday vs Weekend
+- Weekday vs Weekend
 
   - Weekdays show slightly higher congestion than weekends
 
   - Traffic remains consistently high overall
 
--Lane Blockage Impact
+- Lane Blockage Impact
 
   - Lane closures significantly increase congestion levels
 
   - Requires quick incident resolution
 
--Vehicle Distribution
+- Vehicle Distribution
 
   - Traffic is evenly distributed across vehicle types
 
