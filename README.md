@@ -1,4 +1,4 @@
-<img width="1470" height="956" alt="Screenshot 2026-03-19 at 12 36 42 PM" src="https://github.com/user-attachments/assets/21cace30-8d97-44c1-b75b-9c6eca098d78" /><img width="1470" height="956" alt="Screenshot 2026-03-19 at 12 36 42 PM" src="https://github.com/user-attachments/assets/3b3f1bac-53c6-474f-8ab4-d78409ea45e3" />#   Real-Time Traffic Data Monitoring Pipeline (Databricks + PySpark)
+#   Real-Time Traffic Data Monitoring Pipeline (Databricks + PySpark)
 
 ## Project Overview 
 
@@ -127,7 +127,7 @@ traffic_catalog.silver.vehicle_clean
 
 ### Star Schema
 
-<img width="1470" height="956" alt="Screenshot 2026-03-19 at 12 36 42 PM" src="https://github.com/user-attachments/assets/3bbe690b-70b9-4d99-97cb-454b75a37d4e" />
+<img width="1536" height="1024" alt="ChatGPT Image Mar 19, 2026, 01_05_05 PM" src="https://github.com/user-attachments/assets/7d0a348b-6e72-43e6-b5c5-77d5ed2f7e06" />
 
 
 
@@ -147,23 +147,25 @@ Generate **business-ready datasets for analytics and forecasting**.
 
 - Rolling Average Speed (10min_avg_speed): Computes moving average speed over a 10-minute window for trend analysis
 
--Traffic Density: Derived from vehicle count and road capacity to measure load on roads
+- Traffic Density: Derived from vehicle count and road capacity to measure load on roads
 
 - Signal Efficiency Metrics": Measures performance of traffic signals (e.g., wait time, flow efficiency)
 
 - Time-Based Aggregations: Metrics analyzed by hour, day, and date for trend analysis
 - Anomaly Detection Flags: Identifies unusual traffic patterns or sudden drops/spikes
-### Output Table
-
-```
-analytics.sales_forecast_features
-```
 
 ---
 
 # **Air Flow** (Pipeline Orchestration)
 
 The pipeline is orchestrated using **Apache Airflow DAGs**.
+![WhatsApp Image 2026-03-19 at 14 14 06](https://github.com/user-attachments/assets/6b0780f9-4ded-4a8c-b423-ad74efdd3b5e)
+
+
+
+
+
+
 
 ### Airflow DAG Tasks
 
