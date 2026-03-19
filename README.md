@@ -67,7 +67,7 @@ These datasets simulate a **real-world smart city traffic system**.
 <img width="1536" height="1024" alt="ChatGPT Image Mar 18, 2026, 04_27_27 PM (1)" src="https://github.com/user-attachments/assets/ca3d00ce-1635-4521-821a-9efd6ab368aa" />
 
 ---
-# ETL Pipeline Design (Medallion Architecture Layers)
+# ETL Pipeline Design 
 
 ## Bronze Layer (Raw Data)
 
