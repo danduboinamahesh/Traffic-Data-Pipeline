@@ -310,6 +310,4 @@ The pipeline enables several **smart city traffic insights**:
 - shanmukh
 - Umesh yadav
 
-GitHub:
 
-https://github.com/danduboinamahesh/Traffic-Data-Pipeline
