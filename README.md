@@ -3,12 +3,12 @@
 ## Project Overview 
 
 The Real-Time Traffic Data Monitoring Pipeline is a scalable data engineering solution designed to ingest, process, and analyze streaming traffic data for real-time insights. This project leverages modern Lakehouse architecture using Databricks, PySpark, Delta Lake, and AWS services to build an end-to-end pipeline that handles high-volume traffic sensor data efficiently. Traffic data (vehicle count, speed, timestamps, etc.) is streamed through Amazon Kinesis, processed in near real-time, and stored across Bronze, Silver, and Gold layers in Delta Lake for structured analytics and reporting.
-The pipeline ensures:
 
--Reliable ingestion of streaming data
--Data cleansing and validation
--Real-time computation of traffic metrics
--Scalable storage and optimized querying
+The pipeline ensures:
+- Reliable ingestion of streaming data
+- Data cleansing and validation
+- Real-time computation of traffic metrics
+- Scalable storage and optimized querying
 ---
 ## Project Objective
 - Build a scalable real-time traffic monitoring pipeline to handle continuous data from sensors  
